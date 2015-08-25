@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Invoice</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="license" href="http://www.opensource.org/licenses/mit-license/">
+    <script src="words_pl.js"></script>
+    <script src="script.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.0/material.min.js"></script>
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style type="text/css" media="print">
+        #print {visibility: hidden;}
+        #submit {visibility: hidden;}
+
+    </style>
+
+</head>
+<body>
+<header>
+    <h1>Faktura vat</h1>
+</header>
+
+ <table class="meta">
+            <tr>
+                <th><span contenteditable>Faktura nr: </span></th>
+                <td><span contenteditable>101138</span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Data wystawienia</span></th>
+                <td><input name="date" id="date" type="text" readonly><br><br>
+
+                </td>
+                <script>
+                    document.getElementById('date').value = yyyy+'.'+MM+'.'+dd;
+                </script>
+            </tr>
+            <tr>
+                <th><span contenteditable>Dni do zapłaty: </span>
+                <span contenteditable>Termin płatności: </span></th>
+                <td>
+                    <span contenteditable>
+                        <input name="days_to_pay" id="days_to_pay" type="text" value="">
+                    </span><br><br>
+                    <span></span>
+                </td>
+            </tr>
+        </table>
+
+<article>
+    <form action="fake.html" method="get">
+        <address id="customer">
+            <h4>Nabywca</h4>
+            
+            <input type="text"  rows="3" placeholder="Firma"></input>
+            <br>
+            <input type="text"  placeholder="Adres"></input>
+            <br>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" placeholder="NIP"></input>
+            <br>
+            
+     
+            <hr style="clear:both;"/>
+
+        </address>
+
+
+        <address id="seller">
+            <h4>Sprzedawca</h4>
+            
+            <input type="text" contenteditable="true" placeholder="Firma"></input>
+            <br>
+            <input type="text" contenteditable="true" placeholder="Adres"></input>
+            <br>
+            <input type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" placeholder="NIP"></input>
+            
+
+
+
+
+
+
+
+        </address>
+
+        <br style="clear: both;">
+        <table class="inventory">
+            <thead>
+            <tr>
+                <th><span contenteditable>Lp.</span></th>
+                <th><span contenteditable>Nazwa</span></th>
+                <th><span contenteditable>J. m.</span></th>
+                <th><span contenteditable>Ilość</span></th>
+                <th><span contenteditable>Cena netto</span></th>
+                <th><span contenteditable>VAT</span></th>
+                <th><span contenteditable>Wartość netto</span></th>
+                <th><span contenteditable>Wartość brutto</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a class="cut">-</a><span></span></td>
+                <td><span contenteditable></span></td>
+                <td><span contenteditable></span>szt.</td>
+                <td><span contenteditable></span></td>
+                <td><span contenteditable></span></td>
+                <td><span>
+
+                <select name="vat">
+                    <option value="23" selected>23%</option>
+                    <option value="22">22%</option>
+                    <option value="8">8%</option>
+                    <option value="5">5%</option>
+                    <option value="0">0%</option>
+                    <option value="0">NP</option>
+                </select>
+
+            </span></td>
+                <td><span></span></td>
+                <td><span></span></td>
+            </tr>
+            </tbody>
+        </table>
+        <a class="add">+</a>
+        <table class="balance">
+            <tr>
+                <th><span contenteditable>Wartość netto</span></th>
+                <td><span data-prefix>PLN </span><span>0.00</span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Wartość brutto</span></th>
+                <td><span data-prefix>PLN </span><span contenteditable>0.00</span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Słownie</span></th>
+                <td><span id="show_number"></span></td>
+            </tr>
+            <tr>
+                <th><span contenteditable>Forma płatności</span></th>
+                <td><span id="payment"><select name="">
+                    <option value="23" selected>Przelewem</option>
+                    <option value="23" selected>Gotówką</option>
+                </select></span></td>
+                
+
+
+
+            </tr>
+        </table>
+        <input type="submit" id="submit" value="Submit">
+    </form>
+
+<button onclick="myFunction()" id="print">Wydrukuj fakture</button>
+
+<form action="fake.html" method="get">
+
+
+
+        <address id="odebral">
+        
+            <span class="input-label" contenteditable="true">Odebrał</span>
+            <br>
+            <hr style="clear:both;"/>
+
+        </address>
+        <address id="wystawil">
+           
+            
+            <span class="input-label" contenteditable="true">Wystawił</span>
+            
+            
+        </address>
+        <br style="clear: both;">
+
+
+
+
+</article>
+
+</body>
+</html>
+
+
+
+
+
+
+
